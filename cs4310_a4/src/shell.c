@@ -3,9 +3,12 @@
 #include<string.h>
 #include<stdlib.h>
 #include<unistd.h>
+#include<dirent.h>
 #include<sys/types.h>
 #include<sys/wait.h>
 #include<sys/stat.h>
+#include<sys/dir.h>
+#include<sys/param.h>
 #include<readline/readline.h>
 #include<readline/history.h>
 
@@ -155,7 +158,11 @@ void openHelp()
 // Function to execute builtin commands
 int ownCmdHandler(char** parsed)
 {
-    int NoOfOwnCmds = 7, i, switchOwnArg = 0;
+    struct dirent **files;
+    char cwd[1024];
+    int count, j;
+    
+    int NoOfOwnCmds = 8, i, switchOwnArg = 0;
     char* ListOfOwnCmds[NoOfOwnCmds];
     char* username;
     
@@ -166,6 +173,7 @@ int ownCmdHandler(char** parsed)
     ListOfOwnCmds[4] = "mkdir";
     ListOfOwnCmds[5] = "rmdir";
     ListOfOwnCmds[6] = "pwd";
+    ListOfOwnCmds[7] = "ls";
     
     for (i = 0; i < NoOfOwnCmds; i++) {
         if (strcmp(parsed[0], ListOfOwnCmds[i]) == 0) {
@@ -206,6 +214,24 @@ int ownCmdHandler(char** parsed)
         case 7:
             printDir();
             printf("\n");
+            return 1;
+        case 8:
+            if (!getcwd(cwd, sizeof(cwd))) {
+                printf("\nCould not get pathname...");
+                return 1;
+            }
+            
+            count = scandir(cwd, &files, NULL, alphasort);
+            if(count <= 3) {
+                printf("No files in this directory\n");
+                return 1;
+            }
+            for (j = 1; j < count + 1; ++j)
+                if ((strcmp(files[j-1]->d_name, ".") != 0) && (strcmp(files[j-1]->d_name, "..") != 0) && (strcmp(files[j-1]->d_name, ".DS_Store") != 0) ) {
+                    printf("%s  ",files[j-1]->d_name);
+                }
+            printf("\n");
+            
             return 1;
         default:
             break;
