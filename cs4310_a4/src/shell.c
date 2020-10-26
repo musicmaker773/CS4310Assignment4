@@ -12,16 +12,16 @@
 #include<readline/readline.h>
 #include<readline/history.h>
 
+#include <fcntl.h>
+
 #define MAXCOM 1000 // max number of letters to be supported
 #define MAXLIST 100 // max number of commands to be supported
 
-// Clearing the shell using escape sequences
-#define clear() printf("\033[H\033[J")
 
 // Greeting shell during startup
 void init_shell()
 {
-    // clear();
+
     printf("\n\n\n\n******************"
            "************************");
     printf("\n\n\n\t****MY SHELL****");
@@ -32,7 +32,7 @@ void init_shell()
     printf("\n\n\nUSER is: @%s", username);
     printf("\n");
     sleep(1);
-    // clear();
+
 }
 
 // Function to take input
@@ -40,7 +40,7 @@ int takeInput(char* str)
 {
     char* buf;
     
-    buf = readline(">>> ");
+    buf = readline(" >>> ");
     if (strlen(buf) != 0) {
         add_history(buf);
         strcpy(str, buf);
