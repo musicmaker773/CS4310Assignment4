@@ -155,7 +155,7 @@ void openHelp()
 // Function to execute builtin commands
 int ownCmdHandler(char** parsed)
 {
-    int NoOfOwnCmds = 5, i, switchOwnArg = 0;
+    int NoOfOwnCmds = 7, i, switchOwnArg = 0;
     char* ListOfOwnCmds[NoOfOwnCmds];
     char* username;
     
@@ -164,6 +164,8 @@ int ownCmdHandler(char** parsed)
     ListOfOwnCmds[2] = "help";
     ListOfOwnCmds[3] = "hello";
     ListOfOwnCmds[4] = "mkdir";
+    ListOfOwnCmds[5] = "rmdir";
+    ListOfOwnCmds[6] = "pwd";
     
     for (i = 0; i < NoOfOwnCmds; i++) {
         if (strcmp(parsed[0], ListOfOwnCmds[i]) == 0) {
@@ -195,6 +197,15 @@ int ownCmdHandler(char** parsed)
             if(mkdir(parsed[1], 0777) < 0) {
                 printf("\nCould not make new directory..");
             }
+            return 1;
+        case 6:
+            if(rmdir(parsed[1]) < 0) {
+                printf("\nCould not remove directory..");
+            }
+            return 1;
+        case 7:
+            printDir();
+            printf("\n");
             return 1;
         default:
             break;
