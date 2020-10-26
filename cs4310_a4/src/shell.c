@@ -166,6 +166,9 @@ int ownCmdHandler(char** parsed)
     char* ListOfOwnCmds[NoOfOwnCmds];
     char* username;
     
+    FILE *fptr1, *fptr2;
+    char ch;
+    
     ListOfOwnCmds[0] = "exit";
     ListOfOwnCmds[1] = "cd";
     ListOfOwnCmds[2] = "help";
@@ -232,6 +235,34 @@ int ownCmdHandler(char** parsed)
                 }
             printf("\n");
             
+            return 1;
+        case 9:
+            fptr1 = fopen(parsed[1], "r");
+            if (fptr1 == NULL)
+            {
+                printf("Cannot open file %s \n", parsed[1]);
+                return 1;
+            }
+            
+            fptr2 = fopen(parsed[2], "w");
+            if (fptr2 == NULL)
+            {
+                printf("Cannot open file %s \n", parsed[2]);
+                return 1;
+            }
+            
+            ch = fgetc(fptr1);
+            while (ch != EOF)
+            {
+                fputc(ch, fptr2);
+                ch = fgetc(fptr1);
+            }
+            
+            printf("\nContents copied to %s", parsed[2]);
+            
+            fclose(fptr1);
+            fclose(fptr2);
+
             return 1;
         default:
             break;
