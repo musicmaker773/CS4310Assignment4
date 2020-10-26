@@ -162,7 +162,7 @@ int ownCmdHandler(char** parsed)
     char cwd[1024];
     int count, j;
     
-    int NoOfOwnCmds = 8, i, switchOwnArg = 0;
+    int NoOfOwnCmds = 9, i, switchOwnArg = 0;
     char* ListOfOwnCmds[NoOfOwnCmds];
     char* username;
     
@@ -177,6 +177,7 @@ int ownCmdHandler(char** parsed)
     ListOfOwnCmds[5] = "rmdir";
     ListOfOwnCmds[6] = "pwd";
     ListOfOwnCmds[7] = "ls";
+    ListOfOwnCmds[8] = "cp";
     
     for (i = 0; i < NoOfOwnCmds; i++) {
         if (strcmp(parsed[0], ListOfOwnCmds[i]) == 0) {
