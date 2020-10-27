@@ -1,3 +1,5 @@
 Member Contribution File
-Member: Erin Chon
+Member Name: Erin Chon
 Contributions:
+  Shell.c
+  Resources
