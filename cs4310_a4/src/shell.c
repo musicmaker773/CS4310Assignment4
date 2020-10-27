@@ -17,6 +17,7 @@
 #define MAXCOM 1000 // max number of letters to be supported
 #define MAXLIST 100 // max number of commands to be supported
 
+#define clear() printf("\033[H\033[J")
 
 // Greeting shell during startup
 void init_shell()
@@ -160,7 +161,7 @@ int ownCmdHandler(char** parsed)
     char cwd[1024];
     int count, j;
     
-    int NoOfOwnCmds = 10, i, switchOwnArg = 0;
+    int NoOfOwnCmds = 11, i, switchOwnArg = 0;
     char* ListOfOwnCmds[NoOfOwnCmds];
     char* username;
     
@@ -177,6 +178,7 @@ int ownCmdHandler(char** parsed)
     ListOfOwnCmds[7] = "ls";
     ListOfOwnCmds[8] = "cp";
     ListOfOwnCmds[9] = "color";
+    ListOfOwnCmds[10] = "clear";
     
     for (i = 0; i < NoOfOwnCmds; i++) {
         if (strcmp(parsed[0], ListOfOwnCmds[i]) == 0) {
@@ -281,6 +283,9 @@ int ownCmdHandler(char** parsed)
                 printf("\033[0m");
             }
             printf("\nNow, the color is %s", parsed[1]);
+            return 1;
+        case 11:
+            clear();
             return 1;
         default:
             break;
