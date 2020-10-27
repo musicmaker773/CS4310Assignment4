@@ -146,9 +146,7 @@ void openHelp()
          "\n>ls"
          "\n>cp"
          "\n>exit"
-         "\n>all other general commands available in UNIX shell"
-         "\n>pipe handling"
-         "\n>improper space handling");
+         "\n>pipe handling");
     
     return;
 }
