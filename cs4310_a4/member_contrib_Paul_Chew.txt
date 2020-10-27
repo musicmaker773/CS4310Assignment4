@@ -1,3 +1,5 @@
 Member Contribution File
 Member Name: Paul Chew
 Contributions:
+      Shell.c
+      Report for Shell.c
