@@ -2,4 +2,12 @@ Member Contribution File
 Member Name: Erin Chon
 Contributions:
   Shell.c
+    - init_Shell() method
+    - openHelp() method
+    - New Features
+      - Color command
+      - Clear screen command
   Resources
+    - Research for various basic commands
+    - Research for color command
+    - Research for clear screen command
