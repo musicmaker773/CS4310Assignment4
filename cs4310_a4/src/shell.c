@@ -1,3 +1,7 @@
+//CS 4310 Assignment 4
+//Group Name: Team Penultimate
+//Group Members: Bryce Quintana, Paul Chew, and Erin Chon
+
 //Code for the the shell
 #include<stdio.h>
 #include<string.h>
