@@ -2,4 +2,5 @@ Member Contribution File
 Member Name: Paul Chew
 Contributions:
       Shell.c
-      Report for Shell.c
+      - helped design the command handler for the Shell
+      Wrote/Proofread Report for Shell.c
