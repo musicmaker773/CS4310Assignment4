@@ -21,7 +21,7 @@
 // Greeting shell during startup
 void init_shell()
 {
-
+    
     printf("\n\n\n\n***********************"
            "************************");
     printf("\n\n\n\t****TEAM PENULTIMATE SHELL****");
@@ -32,7 +32,7 @@ void init_shell()
     printf("\n\n\nUSER is: @%s", username);
     printf("\n");
     sleep(1);
-
+    
 }
 
 // Function to take input
@@ -147,6 +147,7 @@ void openHelp()
          "\n>cp"
          "\n>hello"
          "\n>exit"
+         "\n>color"
          "\n>pipe handling");
     
     return;
@@ -159,7 +160,7 @@ int ownCmdHandler(char** parsed)
     char cwd[1024];
     int count, j;
     
-    int NoOfOwnCmds = 9, i, switchOwnArg = 0;
+    int NoOfOwnCmds = 10, i, switchOwnArg = 0;
     char* ListOfOwnCmds[NoOfOwnCmds];
     char* username;
     
@@ -175,6 +176,7 @@ int ownCmdHandler(char** parsed)
     ListOfOwnCmds[6] = "pwd";
     ListOfOwnCmds[7] = "ls";
     ListOfOwnCmds[8] = "cp";
+    ListOfOwnCmds[9] = "color";
     
     for (i = 0; i < NoOfOwnCmds; i++) {
         if (strcmp(parsed[0], ListOfOwnCmds[i]) == 0) {
@@ -259,7 +261,26 @@ int ownCmdHandler(char** parsed)
             
             fclose(fptr1);
             fclose(fptr2);
-
+            
+            return 1;
+        case 10:
+            
+            if(strcmp(parsed[1], "red") == 0) {
+                printf("\033[0;31m");
+            }
+            if(strcmp(parsed[1], "green") == 0) {
+                printf("\033[0;32m");
+            }
+            if(strcmp(parsed[1], "blue") == 0) {
+                printf("\033[0;34m");
+            }
+            if(strcmp(parsed[1], "yellow") == 0) {
+                printf("\033[0;33m");
+            }
+            if(strcmp(parsed[1], "reset") == 0) {
+                printf("\033[0m");
+            }
+            printf("\nNow, the color is %s", parsed[1]);
             return 1;
         default:
             break;
