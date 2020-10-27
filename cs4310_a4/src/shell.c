@@ -145,6 +145,7 @@ void openHelp()
          "\n>rmdir"
          "\n>ls"
          "\n>cp"
+         "\n>hello"
          "\n>exit"
          "\n>pipe handling");
     
@@ -196,9 +197,8 @@ int ownCmdHandler(char** parsed)
             return 1;
         case 4:
             username = getenv("USER");
-            printf("\nHello %s.\nMind that this is "
-                   "not a place to play around."
-                   "\nUse help to know more..\n",
+            printf("\nHello %s."
+                   "\nUse the help command to know more..\n",
                    username);
             return 1;
         case 5:
