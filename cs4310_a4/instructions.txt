@@ -3,16 +3,17 @@ Instructions for Running the Shell
 1. When inside the CS4310_a4 directory, type "make" into the command line. This will compile the code from a Makefile into an executable file called "shell_make".
 2. Execute the file shell_make by typing ./shell_make into the command line.
 3. Our command line should work at this point. It will show an introduction of the command line for a brief second. At that point, you can do one of the following commands:
- cd - Change directory
- pwd - Present working directory
+ cd    - Change directory
+ pwd   - Present working directory
  mkdir - Make Directory
  rmdir - Removes Directory in current working directory
- ls - List all files in directory
- cp - Copies files into other files
- help - names all commands that are usable
- hello - says "hello" to you
- exit - Leaves shell with a "Goodbye"
- It can also run executables
+ ls    - List all files in directory
+ cp    - Copies files into other files
+ help  - Names all commands that are usable
+ hello - Says "hello" to you
+ exit  - Leaves shell with a "Goodbye"
+ color - Allows the user to change the color of the command line
+ clear - Clears the screen
+ It can also run executables.
  
  If you have any issues, contact bquintana@cpp.edu
- 
