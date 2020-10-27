@@ -22,12 +22,12 @@
 void init_shell()
 {
 
-    printf("\n\n\n\n******************"
+    printf("\n\n\n\n***********************"
            "************************");
-    printf("\n\n\n\t****MY SHELL****");
-    printf("\n\n\t-USE AT YOUR OWN RISK-");
+    printf("\n\n\n\t****TEAM PENULTIMATE SHELL****");
+    printf("\n\n  -BY BRYCE QUINTANA, PAUL CHEW, & ERIN CHON-");
     printf("\n\n\n\n*******************"
-           "***********************");
+           "****************************");
     char* username = getenv("USER");
     printf("\n\n\nUSER is: @%s", username);
     printf("\n");
@@ -137,9 +137,7 @@ void execArgsPiped(char** parsed, char** parsedpipe)
 // Help command builtin
 void openHelp()
 {
-    puts("\n***WELCOME TO MY SHELL HELP***"
-         "\nCopyright @ Suprotik Dey"
-         "\n-Use the shell at your own risk..."
+    puts("\n***WELCOME TO TEAM PENULTIMATE SHELL HELP***"
          "\nList of Commands supported:"
          "\n>cd"
          "\n>pwd"
