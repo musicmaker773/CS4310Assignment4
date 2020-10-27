@@ -1,4 +1,4 @@
 Member Contribution File
 Member Name: Bryce Quintana
 Contributions:
-Research, Implementation of commands and testing the code with executables.
+Research for the commands and the making of the shell and use of strings, implementation of commands with the help of Paul, and testing the code with executables and dummy files and testing with text files.
