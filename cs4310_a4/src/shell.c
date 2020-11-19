@@ -270,17 +270,21 @@ int ownCmdHandler(char** parsed)
             if(strcmp(parsed[1], "red") == 0) {
                 printf("\033[0;31m");
             }
-            if(strcmp(parsed[1], "green") == 0) {
+            else if(strcmp(parsed[1], "green") == 0) {
                 printf("\033[0;32m");
             }
-            if(strcmp(parsed[1], "blue") == 0) {
+            else if(strcmp(parsed[1], "blue") == 0) {
                 printf("\033[0;34m");
             }
-            if(strcmp(parsed[1], "yellow") == 0) {
+            else if(strcmp(parsed[1], "yellow") == 0) {
                 printf("\033[0;33m");
             }
-            if(strcmp(parsed[1], "reset") == 0) {
+            else if(strcmp(parsed[1], "reset") == 0) {
                 printf("\033[0m");
+            }
+            else {
+                printf("\nColor not identified.");
+                return 1;
             }
             printf("\nNow, the color is %s", parsed[1]);
             return 1;
